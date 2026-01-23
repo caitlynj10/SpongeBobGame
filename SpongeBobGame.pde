@@ -1,3 +1,4 @@
+SpongeBob mySpongeBob = new SpongeBob(400, 500);
 void setup(){
     size(800, 800);
 }
@@ -18,6 +19,8 @@ void draw(){
     arc(505, 300, 150, 150, PI, TWO_PI);
     rect(640, 150, 150, 450);
     arc(715, 150, 150, 150, PI, TWO_PI);
-    stroke(0, 0, 0);   
+    stroke(0, 0, 0);  
+    
+    mySpongeBob.act();
 
 }
