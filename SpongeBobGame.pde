@@ -1,6 +1,11 @@
 SpongeBob mySpongeBob = new SpongeBob(400, 500);
+KrabbyPatties rain [] = new KrabbyPatties [5];
+
 void setup(){
     size(800, 800);
+    for (int i = 0; i < rain.length; i++) {
+        rain [i] = new KrabbyPatties();
+    }
 }
 
 void draw(){
@@ -20,7 +25,17 @@ void draw(){
     rect(640, 150, 150, 450);
     arc(715, 150, 150, 150, PI, TWO_PI);
     stroke(0, 0, 0);  
+
+    for (int i = 0; i < rain.length; i++) {
+    rain[i].act();
+  }
     
     mySpongeBob.act();
 
+    textSize(20); // Set Text Size  
+    fill(0, 0, 0); // Text color black 
+    text("Score: ", 20, 20); // Print "Score" on canvas
+    text(mySpongeBob.score, 100, 20); // Print player's score
+    text("Level: ", 900, 20);
+    text(mySpongeBob.level, 965, 20);
 }
