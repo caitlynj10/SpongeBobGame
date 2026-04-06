@@ -36,6 +36,6 @@ void draw(){
     fill(0, 0, 0); // Text color black 
     text("Score: ", 20, 20); // Print "Score" on canvas
     text(mySpongeBob.score, 100, 20); // Print player's score
-    text("Level: ", 900, 20);
-    text(mySpongeBob.level, 965, 20);
+    text("Level: ", 700, 20);
+    text(mySpongeBob.level, 780, 20);
 }
