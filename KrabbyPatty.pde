@@ -47,10 +47,8 @@ void drawKrabbyPatties () {
   
   public void levelUp(){
     mySpongeBob.score = mySpongeBob.score + 1; // increase score
-    while(mySpongeBob.level < 10){
-      if(mySpongeBob.score % 20 == 0){
+    if(mySpongeBob.score % 20 == 0){
         mySpongeBob.level = mySpongeBob.level + 1; // increase level every 20 points
-      }
     }
   }
   void act() {
