@@ -6,7 +6,7 @@ class KrabbyPatties extends Actor {
     x = random(0, width);        // start at random x
     y = random(0, height);       // start at random y
     //size = (int)random(10, 10);    // random size
-    velocity = 20;    // Random Speed for y
+    velocity = 10;    // Random Speed for y
     course = 90;
   }
   public float distanceTo(Actor a) {
@@ -45,11 +45,13 @@ void drawKrabbyPatties () {
     arc(x+25, y, 50, 30, PI, TWO_PI);
   }   // Actions for each KrabbyPatties
   
-public void levelUp(){
-  mySpongeBob.score = mySpongeBob.score + 1; // increase score
-  if(mySpongeBob.score == 15){
-    mySpongeBob.level = 2;
-  }
+  public void levelUp(){
+    mySpongeBob.score = mySpongeBob.score + 1; // increase score
+    while(mySpongeBob.level < 10){
+      if(mySpongeBob.score % 20 == 0){
+        mySpongeBob.level = mySpongeBob.level + 1; // increase level every 20 points
+      }
+    }
   }
   void act() {
     drawKrabbyPatties();
