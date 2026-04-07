@@ -4,9 +4,9 @@ class KrabbyPatties extends Actor {
   public KrabbyPatties() {
     super();
     x = random(0, width);        // start at random x
-    y = random(0, height);       // start at random y
+    y = -50;                     // start above the screen
     //size = (int)random(10, 10);    // random size
-    velocity = 10;    // Random Speed for y
+    velocity = pattieSpeed;      // use current game speed
     course = 90;
   }
   public float distanceTo(Actor a) {
@@ -47,15 +47,22 @@ void drawKrabbyPatties () {
   
   public void levelUp(){
     mySpongeBob.score = mySpongeBob.score + 1; // increase score
-    if(mySpongeBob.score % 20 == 0){
-        mySpongeBob.level = mySpongeBob.level + 1; // increase level every 20 points
+    if(mySpongeBob.score > 0 && mySpongeBob.score % 15 == 0){
+        mySpongeBob.level = mySpongeBob.level + 1; 
+        pattieSpeed += 1; // increase global speed
+        
+        // Update all current patties to the new speed
+        for (int i = 0; i < rain.size(); i++) {
+            rain.get(i).velocity = pattieSpeed;
+        }
+        // Add a new patty to the game
+        rain.add(new KrabbyPatties());
     }
   }
   void act() {
     drawKrabbyPatties();
     if (isTouching(mySpongeBob)) {
       y = -20;
-      velocity = (int)random(6, 6);
       x = (int)random(0, width);
       size = (int)random(6, 6);
       levelUp();
@@ -63,7 +70,6 @@ void drawKrabbyPatties () {
     move();
     if (y > height) {
       y = -20;
-      velocity = (int)random(6, 6);
       x = (int)random(0, width);
       size = (int)random(6, 6);
     }

@@ -1,12 +1,11 @@
 SpongeBob mySpongeBob = new SpongeBob(400, 500);
-KrabbyPatties rain [] = new KrabbyPatties [5];
+ArrayList<KrabbyPatties> rain = new ArrayList<KrabbyPatties>();
+float pattieSpeed = 8;
 boolean gameStarted = false;
 
 void setup(){
     size(800, 800);
-    for (int i = 0; i < rain.length; i++) {
-        rain [i] = new KrabbyPatties();
-    }
+    rain.add(new KrabbyPatties());
 }
 
 void startGame(){
@@ -49,8 +48,8 @@ void draw(){
         arc(715, 150, 150, 150, PI, TWO_PI);
         stroke(0, 0, 0);  
 
-        for (int i = 0; i < rain.length; i++) {
-        rain[i].act();
+        for (int i = 0; i < rain.size(); i++) {
+            rain.get(i).act();
         }
         
         mySpongeBob.act();

@@ -105,12 +105,12 @@ class SpongeBob extends Actor {
       if (key == CODED) {
         if (keyCode == RIGHT) {
           course = 0;
-          velocity = 10;
+          velocity = 12;
           move();
         }
         if (keyCode == LEFT) {
           course = 180;
-          velocity = 10;
+          velocity = 12;
           move();
         }
       }
