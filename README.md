@@ -1,2 +1,2 @@
 # SpongeBobGame
-Computer-ran desktop game based on the character Spongebob Squarepants
+Catch the falling krabby patties in this computer game I made using Processing!
